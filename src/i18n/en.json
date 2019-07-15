@@ -1,0 +1,9 @@
+{
+  "normalCase": "Normal (with space)",
+  "camelCase": "camelCase",
+  "snakeCase": "snake_case",
+  "kebabCase": "kebab-case",
+  "pascalCase": "PascalCase",
+  "upperCase": "UPPER CASE",
+  "upperSnakeCase": "UPPER_SNAKE_CASE"
+}

@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <i-header />
+    <div class="container">
+      <case-converter-view />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import 'materialize-css/dist/css/materialize.min.css'
+import '@/assets/helpers.css'
+import {
+  IHeader
+} from '@/components/organisms'
+import {
+  CaseConverterView
+} from '@/components/templates'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    IHeader,
+    CaseConverterView
   }
 }
 </script>
 
 <style>
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
