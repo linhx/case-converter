@@ -1,5 +1,5 @@
 {
-  "normalCase": "Normal (with space)",
+  "freeText": "Free text",
   "camelCase": "camelCase",
   "snakeCase": "snake_case",
   "kebabCase": "kebab-case",
