@@ -66,6 +66,7 @@ export default {
   },
   methods: {
     onChangeFreeText: debounce(function () {
+      // eslint-disable-next-line no-undef
       M.updateTextFields()
       let result = converter.convert(this.freeText)
       this.upperCase = result.upperCase
