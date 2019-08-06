@@ -3,7 +3,7 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo pl-2 pr-2">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#">About</a></li>
+        <li><a href="https://github.com/dinhlinhx/case-converter" target="_blank">Github</a></li>
       </ul>
     </div>
   </nav>

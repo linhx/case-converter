@@ -5,5 +5,6 @@
   "kebabCase": "kebab-case",
   "pascalCase": "PascalCase",
   "upperCase": "UPPER CASE",
-  "upperSnakeCase": "UPPER_SNAKE_CASE"
+  "upperSnakeCase": "UPPER_SNAKE_CASE",
+  "pressEnter": "Press enter!"
 }

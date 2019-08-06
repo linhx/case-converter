@@ -1,9 +1,26 @@
-import { NON_VARIABLE_CHAR_REGEX } from '@/constants'
+import {
+  NON_VARIABLE_CHAR_REGEX,
+  CAMEL_CASE,
+  PASCAL_CASE,
+  SNAKE_CASE,
+  UPPER_SNAKE_CASE,
+  KEBAB_CASE
+} from '@/constants'
 
 const SEPARATOR_CHAR = ' '
 
 function isString (str) {
   return str && typeof str === 'string'
+}
+
+function checkCase (str) {
+  if (!isString(str)) return 0
+  if (CAMEL_CASE.test(str)) return 1
+  if (PASCAL_CASE.test(str)) return 2
+  if (SNAKE_CASE.test(str)) return 3
+  if (UPPER_SNAKE_CASE.test(str)) return 4
+  if (KEBAB_CASE.test(str)) return 5
+  return 0
 }
 
 function replaceNonVariableCharBySeparator (str) {
@@ -27,16 +44,39 @@ function removeConsecutiveSeparator (str) {
 }
 
 function convert (str) {
-  if (!isString(str)) return ''
+  let _case = checkCase(str)
+  let _str
+  switch (_case) {
+    case 1:
+      _str = convertCamelCaseToFreeText(str)
+      break
+    case 2:
+      _str = convertPascalCaseToFreeText(str)
+      break
+    case 3:
+    case 4:
+      _str = convertSnakeCaseToFreeText(str)
+      break
+    case 5:
+      _str = convertKebabCaseToFreeText(str)
+      break
+    default:
+      _str = str
+  }
+  let result = convertFreeTextToCase(_str)
+  result.upperCase = str.toUpperCase()
+  return result
+}
+
+function convertFreeTextToCase (str) {
   let result = {
     camelCase: '',
     snakeCase: '',
     kebabCase: '',
     pascalCase: '',
-    upperCase: '',
     upperSnakeCase: ''
   }
-  result.upperCase = str.toUpperCase()
+  if (!isString(str)) return result
 
   let _str = replaceNonVariableCharBySeparator(str)
   if (!_str.length) return result
@@ -62,6 +102,36 @@ function convert (str) {
   }
   result.camelCase = result.pascalCase.replaceAt(0, result.pascalCase.charAt(0).toLowerCase())
   result.upperSnakeCase = result.snakeCase.toUpperCase()
+  return result
+}
+
+function convertSnakeCaseToFreeText (str) {
+  if (!isString(str)) return ''
+  return str.replace('_', ' ')
+}
+
+function convertKebabCaseToFreeText (str) {
+  if (!isString(str)) return ''
+  return str.replace('-', ' ')
+}
+
+function convertCamelCaseToFreeText (str) {
+  if (!isString(str)) return ''
+  let result = ''
+  for (let i = 0; i < str.length; i++) {
+    let char = str.charAt(i)
+    // eslint-disable-next-line eqeqeq
+    if (char == char.toUpperCase()) {
+      result += ' '
+    }
+    result += char
+  }
+  return result
+}
+
+function convertPascalCaseToFreeText (str) {
+  if (!isString(str)) return ''
+  let result = str.charAt(0) + convertCamelCaseToFreeText(str.substring(1, str.length))
   return result
 }
 
