@@ -1,4 +1,6 @@
 {
+  "appName": "NCC",
+  "github": "Github",
   "freeText": "Free text",
   "camelCase": "camelCase",
   "snakeCase": "snake_case",
