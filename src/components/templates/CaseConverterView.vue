@@ -63,7 +63,7 @@ export default {
       kebabCase: '',
       pascalCase: '',
       upperSnakeCase: '',
-      isAlert: true
+      isAlert: false
     }
   },
   mounted () {
