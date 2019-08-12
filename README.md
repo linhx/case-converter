@@ -1,5 +1,9 @@
 # case-converter
 
+The naming conventions converter tool.
+
+![Image](./naming_conventions_converter.png)
+
 ## Project setup
 ```
 npm install
