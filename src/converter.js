@@ -1,5 +1,6 @@
 import {
   NON_VARIABLE_CHAR_REGEX,
+  UPPER_CASE,
   CAMEL_CASE,
   PASCAL_CASE,
   SNAKE_CASE,
@@ -16,6 +17,7 @@ function isString (str) {
 function checkCase (str) {
   if (!isString(str)) return 0
   if (CAMEL_CASE.test(str)) return 1
+  if (UPPER_CASE.test(str)) return 6
   if (PASCAL_CASE.test(str)) return 2
   if (SNAKE_CASE.test(str)) return 3
   if (UPPER_SNAKE_CASE.test(str)) return 4
